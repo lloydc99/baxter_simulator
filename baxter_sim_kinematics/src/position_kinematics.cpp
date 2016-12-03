@@ -256,3 +256,4 @@ int main(int argc, char* argv[]) {
   //position_kinematics calls ros::shutdown upon exit, just return here
   return 0;
 }
+
