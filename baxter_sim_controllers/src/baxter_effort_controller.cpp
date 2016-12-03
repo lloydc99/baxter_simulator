@@ -35,6 +35,13 @@
 #include <baxter_sim_controllers/baxter_effort_controller.h>
 #include <pluginlib/class_list_macros.h>
 
+//Why is this not defined in the original template?
+template <class T>
+void forward_command_controller::ForwardCommandController<T>::starting(const ros::Time& time)
+{
+  // Start controller with 0.0 effort
+  command_buffer_.writeFromNonRT(0.0);
+}
 
 namespace baxter_sim_controllers {
 
@@ -87,7 +94,7 @@ bool BaxterEffortController::init(
     }
 	
     // Get joint names from the parameter server
-     std::string joint_name[n_joints_];
+    std::vector<std::string> joint_name(n_joints_);
     // Get joint controller name
     std::string joint_controller_name = joint_it->first;
    

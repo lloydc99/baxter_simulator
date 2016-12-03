@@ -211,6 +211,7 @@ bool position_kinematics::IKCallback(
       res.result_type[req_index]=baxter_core_msgs::SolvePositionIKResponse::RESULT_INVALID;
   }
   loop_rate.sleep();
+  return true;
 }
 
 }  //namespace
@@ -255,4 +256,3 @@ int main(int argc, char* argv[]) {
   //position_kinematics calls ros::shutdown upon exit, just return here
   return 0;
 }
-

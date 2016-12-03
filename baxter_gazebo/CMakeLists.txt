@@ -10,6 +10,8 @@ find_package(catkin
   baxter_core_msgs
 )
 
+add_definitions("-std=c++11")
+
 find_package(Boost REQUIRED COMPONENTS system)
 
 find_package(gazebo REQUIRED)
